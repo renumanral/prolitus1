@@ -1,0 +1,72 @@
+
+<html>
+        <style>
+        .h1{
+            color:lightslategrey;
+      text-align:center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .table{
+            border-radius: 10px;
+            background-color:lightgray;
+        }
+        .td1{
+            color:slategrey;
+            font-family:monospace;
+            font-size: 15;
+        }
+    
+        .td2{
+            color:steelblue;
+            font-family: inherit;
+            font-size: 15
+        }
+        </style>
+      <h1  class="h1" >All  Details</h1>
+    <table class="table"  cellpadding="10" align="center" width="400" >
+    <tr>
+    <td class="td1" >Id</td>
+    
+    <td class="td1" >E-mail</td>
+    <td class="td1"  >Name</td>
+    <td class="td1" >Password</td>
+    <td class="td1" >Phone</td>
+    <td class="td1" >Country</td>
+    <td class="td1" >State</td>
+    <td class="td1" > City</td>
+    <td class="td1" >Hobbies</td>
+    <td class="td1" >Status</td>
+    <td class="td1" >Gender</td>
+    <td class="td1" >Address</td>
+    <td class="td1" >Address1</td>
+    <td class="td1" >Pin</td>
+    </tr>
+    
+   <form action="/update" method="POST">
+
+    <tr>
+            
+
+            <td class="td2" ><input type=text name="id" value="<%=results.id%>" readonly ></td>
+            <td class="td2"><input type=text name="email" value="<%=results.email%>" readonly > </td>
+            <td class="td2"><input type=text name="name" value="<%=results.name %>" ></td>
+    
+    <td class="td2"><input type=text name="password" value="<%=results.password%>"></td>
+    <td class="td2"><input type=text name="phone" value="<%=results.phone%>" ></td>
+    <td class="td2"><input type=text name="country" value= "<%=results.country%> "></td>
+    <td class="td2"><input type=text  name="state" value= "<%=results.state%> "></td>
+    <td class="td2"><input type=text  name="city" value= "<%=results.city%>" ></td>
+     <td class="td2"><input type=text  name="hobbies" value= "<%=results.hobbies%>" ></td>
+     <td class="td2"><input type=text name="status" value= "<%=results.marital_status%>" ></td>
+     <td class="td2"><input type=text  name="gender" value= "<%=results.gender%>" ></td>
+    <td class="td2"><input type=text name="address" value= "<%=results.address%>" ></td>
+     <td class="td2"><input type=text name="address1" value= "<%=results.address1%>" ></td>
+    <td class="td2"><input type=text name="pin" value= "<%=results.pin%> "></td>
+   
+    </tr>
+    <tr> <td><input type="submit" name="submit"></td></tr>
+</form>
+    </table>
+
+    
+    </html>

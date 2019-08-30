@@ -1,0 +1,65 @@
+
+<html>
+    <style>
+    .h1{
+        color:lightslategrey;
+  text-align:center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .table{
+        border-radius: 10px;
+        background-color:lightgray;
+    }
+    .td1{
+        color:slategrey;
+        font-family:monospace;
+        font-size: 15;
+    }
+
+    .td2{
+        color:steelblue;
+        font-family: inherit;
+        font-size: 15
+    }
+    </style>
+  <h1  class="h1" >All  Details</h1>
+<table class="table"  cellpadding="10" align="center" width="400" >
+<tr>
+<td class="td1" >Id</td>
+<td class="td1"  >Name</td>
+<td class="td1" >E-mail</td>
+<td class="td1" >Password</td>
+<td class="td1" >Phone</td>
+<td class="td1" >Country</td>
+<td class="td1" >State</td>
+<td class="td1" > City</td>
+<td class="td1" >Hobbies</td>
+<td class="td1" >marital_status</td>
+<td class="td1" >Gender</td>
+<td class="td1" >Address</td>
+<td class="td1" >Address1</td>
+<td class="td1" >Pin</td>
+</tr>
+
+<tr>
+        <td class="td2" ><%=  results.id%> </td>
+        <!-- <td class="td2" ><%= results.id %></td> -->
+        <td class="td2"><%= results.name %></td>
+<td class="td2"><%= results.email %></td>
+<td class="td2"><%= results.password %></td>
+<td class="td2"><%= results.phone %></td>
+<td class="td2"><%= results.country %></td>
+<td class="td2"><%= results.state %></td>
+<td class="td2"><%= results.city %></td>
+ <td class="td2"><%= results.hobbies %></td>
+ <td class="td2"><%=results.marital_status%></td>
+ <td class="td2"><%=results.gender%></td>
+<td class="td2"><%=results.address%></td>
+ <td class="td2"><%=results.address1%></td>
+<td class="td2"><%= results.pin%></td>
+</tr>
+
+</table>
+
+<table align=center><tr><td><a href="/update">Click the link to UPDATE the entries</a></td></tr></table>
+</html>

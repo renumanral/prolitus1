@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    .h2{
+
+      color:lightslategrey;
+      text-align:center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .table{
+      max-width: 450px;
+                    background: #FAFAFA;
+                    
+                    margin: 50px auto;
+                    /* box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35); */
+                    border-radius: 10px;
+                    border: 6px solid #305A72;
+
+    }
+    .tr{
+      padding:7px;
+      background-color:#305A72;
+      color:white;
+      border-radius: 10px;
+                    border: 6px solid rgb(62, 122, 156);
+    }
+
+    .td{
+      padding:7px;
+      background-color:azure;
+      color:black;
+      font-family: monospace;
+      
+    }
+
+    .button{
+
+      background-color:red;
+      font-family:arial;
+
+    }
+
+    
+
+    
+    
+    </style>
+  </head>
+  <body>
+      <h2 class="h2">Admin's Corner</h2>
+
+    <table class="table">
+    
+    <tr class="tr">
+    <th class="th" >Id</th>
+    <th class="th"  >Name</th>
+
+    <th class="th" >Email</th>
+    <th class="th" >Password</th>
+    <th class="th"  >Phone</th>
+    <th class="th" >Country</th>
+    <th class="th" >State</th>
+    <th class="th" >City</th>
+    <th class="th" >Hobbies</th>
+    <th class="th" >marital_status</th>
+    <th class="th" >Gender</th>
+    <th class="th" >Address</th>
+    <th class="th" >Address1</th>
+    <th class="th"  >Pin</th>
+    <th class="th" >Action</th>
+
+    <!-- <th width="19%">password</th> -->
+    </tr>
+    
+    
+    <% if(results && results.length > 0){ %>
+    <%for(var i=0; i < results.length; i++){%>
+    <tr>
+    <td class="td">
+    <%= results[i].id %>
+
+    </td>
+    <td class="td">
+        <%= results[i].name %>
+        
+        </td>
+        <td class="td">
+            <%= results[i].email %>
+            
+            </td>
+     <td class="td">
+     <%= results[i].password%>
+                    
+     </td>    
+     
+     <td class="td"><%= results[i].phone %> </td>   
+     <td class="td"><%= results[i].country %> </td> 
+     <td class="td"><%= results[i].state %> </td> 
+     <td class="td"><%= results[i].city %> </td>  
+     <td class="td"><%= results[i].hobbies %> </td> 
+     <td class="td"><%= results[i].marital_status %> </td> 
+     <td class="td"><%= results[i].gender %> </td>     
+     <td class="td"><%= results[i].address %> </td> 
+     <td class="td"><%= results[i].address1%> </td>
+      <td class="td"><%= results[i].pin %> </td> 
+      <form action="/blocked" method="post">
+      <td><input type="submit" value="block" class="button"></td>
+      </form>
+
+     </tr>
+    <% } %>
+     <% }%>
+    
+    </table>
+
+
+   
+    
+    
+    
+  </body>
+
+  
+  
+</html>
