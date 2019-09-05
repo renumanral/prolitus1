@@ -5,12 +5,23 @@ var reggister=require('./reggister');
 var login = require('./log');
 var myprofile=require('./myprofile');
 var update=require('./update');
+var mysql=require("mysql");
+var path=require("path");
+// var request = require('ajax-request');
+
+// var call=require("call");
+var multer  = require('multer');
+var upload = multer();
+
 
 var bodyParser = require('body-parser');
 
 var express=require("express");
 var session=require("express-session");
 var app=express();
+app.use(express.static('uploads'));
+
+// app.use(express.static('./uploads'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +29,7 @@ app.use(bodyParser.json());
 
 app.use(session({secret: 'xyz',saveUninitialized: true,resave: true}));
 
+// app.use(multer({dest:'./uploads/'}).single('file'));
 
 app.get('/',function(req,res){
 
@@ -25,8 +37,11 @@ app.get('/',function(req,res){
 });
 
 app.get('/login',function(req,res){
+ 
+         //    console.log("78787",results);
+         res.render('login');
 
-    res.render('login');
+     
 });
 
 
@@ -53,7 +68,7 @@ app.get('/myprofile',function(req,res){
 
        }
        else{
-           console.log("78787",results);
+        //    console.log("78787",results);
            res.render('myprofile',{
             results: results[0],
         });
@@ -78,7 +93,7 @@ app.get('/myprofile',function(req,res){
 
        }
        else{
-           console.log("78787",results);
+         //  console.log("78787",results);
            
            res.render('update',{
             results:results[0],
@@ -97,18 +112,13 @@ app.get('/admin',function(req,res){
 
 });
 
-// app.get('/blocked',function(req,res){
-     
-//     var sql=UPDATE  
-       
-// });
-
 
 
 
 
 
 app.post('/registration',function(req,res){
+    console.log("inside post")
   reggister.register(req,res);
 });
 
@@ -126,6 +136,32 @@ app.post('/login',function(req, res) {
        admin.admin(req,res);
       
   });
+
+  app.post('/blocked',function(req,res){
+
+     var x=req.body.hidden;
+     var y=req.body.hidden1; //block status =0 ,unbloc = 1
+      console.log("$%$%$%$%",x);
+      console.log("<><><><><>><><<",y);
+
+   var sqlss = mysql.format("UPDATE details SET status = ? WHERE id = ?",[y,x]);
+    console.log("4444444444444",sqlss)
+        db.query(sqlss,function(error, results){
+            if (error){
+               console.error('Err3or',error);
+            }
+           else{
+               res.send("done");
+           }
+          });
+          
+
+
+
+  });
+
+  
+
 app.listen(5010);
 
 

@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
     .h2{
 
@@ -43,7 +46,12 @@
 
     }
 
-    
+    .button1{
+
+background-color:green;
+font-family:arial;
+
+}
 
     
     
@@ -51,7 +59,6 @@
   </head>
   <body>
       <h2 class="h2">Admin's Corner</h2>
-
     <table class="table">
     
     <tr class="tr">
@@ -106,23 +113,114 @@
      <td class="td"><%= results[i].address %> </td> 
      <td class="td"><%= results[i].address1%> </td>
       <td class="td"><%= results[i].pin %> </td> 
-      <form action="/blocked" method="post">
-      <td><input type="submit" value="block" class="button"></td>
-      </form>
+      <!-- <td class="td"><img src="/uploads/<%= results[i].filename%>" /></td> -->
+      <% if(results[i].status == 1){ %>
+        <td>
+          <input type="submit" class="button" id="<%= results[i].id %>" value="Block"  data-toggle="modal" data-target="#myModal" onclick="block(<%= results[i].id %>,0)">
+        </td>
+        <%} else {%>
+          <td>
+            <input type="submit" class="button1" id="<%= results[i].id %>" value="Unblock"  data-toggle="modal" data-target="#myModal" onclick="block(<%= results[i].id %>,1)">
+          </td> %>
+         
+      <%  }%>
 
      </tr>
+     
     <% } %>
      <% }%>
     
+    <!-- </table> -->
+
+  
+
+  
+
+     <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Are you sure..</h4>
+        </div>
+        <div class="modal-body">
+          <p>You want to block/Unlock the user</p>
+        </div>
+        <div class="modal-footer">
+<!-- form -->
+ <form method="post" action="/blocked">
+  <!-- <h5>User with respective id  will not be able to login again</h5><br> -->
+  <input type="hidden" id="div1" value="" name="hidden">
+  <input type="hidden" id="div2" value="" name="hidden1">
+
+ 
+          <input type="submit"  name="submit" value="Confirm">
+       
+          <input type="button" data-dismiss="modal" value="Close"></button>
+        
+
+</form>
+
+<!-- form -->
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ 
+    
     </table>
-
-
-   
-    
-    
     
   </body>
 
   
   
 </html>
+
+          
+<script>
+  function block(x,y){
+  document.getElementById('div1').value=x;
+  document.getElementById('div2').value=y;
+
+}
+// function block1(x,y){
+//   document.getElementById('div1').value=x;
+//   document.getElementById('div2').value=y;
+
+
+// }
+
+// function change(id){
+//     document.getElementById(id).style.backgroundColor="green";
+//     document.getElementById(id).value="unlock";
+// }
+
+
+</script>   
+           
+<!--       
+            // function block(x){
+            //   document.write(x);
+            // }
+              
+            
+  // $(document).ready(function () {
+  // $('.button').on('click', function () {
+  //             function block(x){
+      
+  //    document.write(x); 
+  //   }
+  //     });
+
+  // });
+
+  //         -->
+  
+  
+ 
+
+              

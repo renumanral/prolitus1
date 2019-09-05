@@ -12,18 +12,26 @@ var db=require('./db');
     var password=req.body.password;
     
 var sql="SELECT * FROM details ";
-console.log("11111",sql);
+//console.log("11111",sql);
 db.query(sql,function(error,results){
        if([email]=="admin@gmail.com" && [password]=="admin123"){
-        console.log("78787",results);
-        
+
+        // const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
+        // console.log(dom.window.document.querySelector("p").popup);
+      
         res.render('displayall',{
          results:results,
        }
         )
-    }
+
+       }
+    
             else{
                 res.send("Sorry,You are not the Admin.");
             }
 });
+
+
+
+
   };
