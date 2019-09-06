@@ -1,192 +1,193 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <style>
-    .h2{
+  <style>
+    .h2 {
 
-      color:lightslategrey;
-      text-align:center;
+      color: lightslategrey;
+      text-align: center;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
-    .table{
+    .table {
       max-width: 450px;
-                    background: #FAFAFA;
-                    
-                    margin: 50px auto;
-                    /* box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35); */
-                    border-radius: 10px;
-                    border: 6px solid #305A72;
+      background: #FAFAFA;
 
-    }
-    .tr{
-      padding:7px;
-      background-color:#305A72;
-      color:white;
+      margin: 50px auto;
+      /* box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35); */
       border-radius: 10px;
-                    border: 6px solid rgb(62, 122, 156);
+      border: 6px solid #305A72;
+
     }
 
-    .td{
-      padding:7px;
-      background-color:azure;
-      color:black;
+    .tr {
+      padding: 7px;
+      background-color: #305A72;
+      color: white;
+      border-radius: 10px;
+      border: 6px solid rgb(62, 122, 156);
+    }
+
+    .td {
+      padding: 7px;
+      background-color: azure;
+      color: black;
       font-family: monospace;
-      
-    }
-
-    .button{
-
-      background-color:red;
-      font-family:arial;
 
     }
 
-    .button1{
+    .button {
 
-background-color:green;
-font-family:arial;
+      background-color: red;
+      font-family: arial;
 
-}
+    }
 
-    
-    
-    </style>
-  </head>
-  <body>
-      <h2 class="h2">Admin's Corner</h2>
-    <table class="table">
-    
+    .button1 {
+
+      background-color: green;
+      font-family: arial;
+
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="h2">Admin's Corner</h2>
+  <table class="table">
+
     <tr class="tr">
-    <th class="th" >Id</th>
-    <th class="th"  >Name</th>
+      <th class="th">Id</th>
+      <th class="th">Name</th>
 
-    <th class="th" >Email</th>
-    <th class="th" >Password</th>
-    <th class="th"  >Phone</th>
-    <th class="th" >Country</th>
-    <th class="th" >State</th>
-    <th class="th" >City</th>
-    <th class="th" >Hobbies</th>
-    <th class="th" >marital_status</th>
-    <th class="th" >Gender</th>
-    <th class="th" >Address</th>
-    <th class="th" >Address1</th>
-    <th class="th"  >Pin</th>
-    <th class="th" >Action</th>
+      <th class="th">Email</th>
+      <th class="th">Password</th>
+      <th class="th">Phone</th>
+      <th class="th">Country</th>
+      <th class="th">State</th>
+      <th class="th">City</th>
+      <th class="th">Hobbies</th>
+      <th class="th">marital_status</th>
+      <th class="th">Gender</th>
+      <th class="th">Address</th>
+      <th class="th">Address1</th>
+      <th class="th">Pin</th>
+      <th class="th">Action</th>
 
-    <!-- <th width="19%">password</th> -->
+      <!-- <th width="19%">password</th> -->
     </tr>
-    
-    
+
+
     <% if(results && results.length > 0){ %>
     <%for(var i=0; i < results.length; i++){%>
     <tr>
-    <td class="td">
-    <%= results[i].id %>
+      <td class="td">
+        <%= results[i].id %>
 
-    </td>
-    <td class="td">
+      </td>
+      <td class="td">
         <%= results[i].name %>
-        
-        </td>
-        <td class="td">
-            <%= results[i].email %>
-            
-            </td>
-     <td class="td">
-     <%= results[i].password%>
-                    
-     </td>    
-     
-     <td class="td"><%= results[i].phone %> </td>   
-     <td class="td"><%= results[i].country %> </td> 
-     <td class="td"><%= results[i].state %> </td> 
-     <td class="td"><%= results[i].city %> </td>  
-     <td class="td"><%= results[i].hobbies %> </td> 
-     <td class="td"><%= results[i].marital_status %> </td> 
-     <td class="td"><%= results[i].gender %> </td>     
-     <td class="td"><%= results[i].address %> </td> 
-     <td class="td"><%= results[i].address1%> </td>
-      <td class="td"><%= results[i].pin %> </td> 
+
+      </td>
+      <td class="td">
+        <%= results[i].email %>
+
+      </td>
+      <td class="td">
+        <%= results[i].password%>
+
+      </td>
+
+      <td class="td"><%= results[i].phone %> </td>
+      <td class="td"><%= results[i].country %> </td>
+      <td class="td"><%= results[i].state %> </td>
+      <td class="td"><%= results[i].city %> </td>
+      <td class="td"><%= results[i].hobbies %> </td>
+      <td class="td"><%= results[i].marital_status %> </td>
+      <td class="td"><%= results[i].gender %> </td>
+      <td class="td"><%= results[i].address %> </td>
+      <td class="td"><%= results[i].address1%> </td>
+      <td class="td"><%= results[i].pin %> </td>
       <!-- <td class="td"><img src="/uploads/<%= results[i].filename%>" /></td> -->
       <% if(results[i].status == 1){ %>
-        <td>
-          <input type="submit" class="button" id="<%= results[i].id %>" value="Block"  data-toggle="modal" data-target="#myModal" onclick="block(<%= results[i].id %>,0)">
-        </td>
-        <%} else {%>
-          <td>
-            <input type="submit" class="button1" id="<%= results[i].id %>" value="Unblock"  data-toggle="modal" data-target="#myModal" onclick="block(<%= results[i].id %>,1)">
-          </td> %>
-         
+      <td>
+        <input type="submit" class="button" id="<%= results[i].id %>" value="Block" data-toggle="modal"
+          data-target="#myModal" onclick="block(<%= results[i].id %>,0)">
+      </td>
+      <%} else {%>
+      <td>
+        <input type="submit" class="button1" id="<%= results[i].id %>" value="Unblock" data-toggle="modal"
+          data-target="#myModal" onclick="block(<%= results[i].id %>,1)">
+      </td> %>
+
       <%  }%>
 
-     </tr>
-     
+    </tr>
+
     <% } %>
-     <% }%>
-    
+    <% }%>
+
     <!-- </table> -->
 
-  
 
-  
 
-     <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Are you sure..</h4>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Are you sure..</h4>
+          </div>
+          <div class="modal-body">
+            <p>You want to block/Unlock the user</p>
+          </div>
+          <div class="modal-footer">
+            <!-- form -->
+            <form method="post" action="/blocked">
+              <!-- <h5>User with respective id  will not be able to login again</h5><br> -->
+              <input type="hidden" id="div1" value="" name="hidden">
+              <input type="hidden" id="div2" value="" name="hidden1">
+
+
+              <input type="submit" name="submit" value="Confirm">
+
+              <input type="button" data-dismiss="modal" value="Close"></button>
+
+
+            </form>
+
+            <!-- form -->
+          </div>
         </div>
-        <div class="modal-body">
-          <p>You want to block/Unlock the user</p>
-        </div>
-        <div class="modal-footer">
-<!-- form -->
- <form method="post" action="/blocked">
-  <!-- <h5>User with respective id  will not be able to login again</h5><br> -->
-  <input type="hidden" id="div1" value="" name="hidden">
-  <input type="hidden" id="div2" value="" name="hidden1">
 
- 
-          <input type="submit"  name="submit" value="Confirm">
-       
-          <input type="button" data-dismiss="modal" value="Close"></button>
-        
-
-</form>
-
-<!-- form -->
-        </div>
       </div>
-      
     </div>
-  </div>
- 
-    
-    </table>
-    
-  </body>
 
-  
-  
+
+  </table>
+
+</body>
+
+
+
 </html>
 
-          
-<script>
-  function block(x,y){
-  document.getElementById('div1').value=x;
-  document.getElementById('div2').value=y;
 
-}
+<script>
+  function block(x, y) {
+    document.getElementById('div1').value = x;
+    document.getElementById('div2').value = y;
+
+  }
 // function block1(x,y){
 //   document.getElementById('div1').value=x;
 //   document.getElementById('div2').value=y;
@@ -200,8 +201,8 @@ font-family:arial;
 // }
 
 
-</script>   
-           
+</script>
+
 <!--       
             // function block(x){
             //   document.write(x);
@@ -219,8 +220,3 @@ font-family:arial;
   // });
 
   //         -->
-  
-  
- 
-
-              

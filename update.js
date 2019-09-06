@@ -38,7 +38,7 @@ var db=require('./db');
         res.send("not updated");
     
     } else {
-        res.render('login');
+        res.redirect('/myprofile');
         
     }
 

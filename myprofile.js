@@ -7,7 +7,8 @@ var db=require('./db');
 var log=require('./log')
 var path=require("path");
   var app=express();
-  app.use(express.static('uploads'));
+  
+  app.use('/uploads',express.static('/uploads'));
 
   app.set('view engine','ejs');
   app.use(bodyParser.urlencoded({extented:true}));
@@ -17,11 +18,13 @@ var path=require("path");
 	resave: true,
 	saveUninitialized: true
 }));
+
+
 exports.profile = function(req, res) {
     
-    // var email=req.session.email;
+    var email=req.session.email;
     
-    db.query(mysql.format('SELECT * FROM details WHERE email = ? '),[email], function (error, results, fields) {
+    db.query(mysql.format('SELECT * FROM details WHERE email = ? '),[email], function (error, results) {
     
           if(error){
         console.log("77777",err);

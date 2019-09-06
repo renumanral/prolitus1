@@ -5,7 +5,7 @@ var mysql=require("mysql");
 var bodyParser=require("body-parser");
 var db=require('./db');
   var app=express();
-  app.use(express.static('uploads'));
+  // app.use(express.static('uploads'));
   app.set('view engine','ejs');
   app.use(bodyParser.urlencoded({extented:true}));
   app.use(bodyParser.json());
