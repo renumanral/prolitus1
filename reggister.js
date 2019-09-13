@@ -55,6 +55,18 @@ if(req.file){
 
     console.log("hobbies: " + check);
 
+
+    if(password.length < 8){
+        res.send("password length must be greater than 8")
+    }
+    if( phone.length != 10){
+        res.send("Please fill correct number")
+    }
+
+    
+
+    else{
+
     let insertQuery = "INSERT INTO details (name, email, password, phone,country,state,city,hobbies,marital_status, gender,address, address1,pin,filename) VALUES ('" + name + "', '" + email + "', '" + password + "', '" + phone + "', '" + country + "', '" + state + "', '" + city + "', '" + check + "', '" + marital_status + "', '" + gender + "', '" + address + "', '" + address1 + "', '" + pin + "', '" + file +"')";
 
     console.log("Data:  " + insertQuery)
@@ -62,17 +74,27 @@ if(req.file){
         if (err) {
             return res.status(500).send(err);
         }
+         else{
+        req.flash('register', 'User registered successfully');
         res.redirect("/login");
+         }
 
     });
-} else {
+}
+}
+ else {
     console.log("eror in file uploading!")
 }
-} catch(e) {
+
+
+
+}
+catch(e) {
 console.log("error",e)
 }
    
 };
+
 
 // app.post('/api/upload',upload.single('profile'), function (req, res) {
 //     message = "Error! in image upload."

@@ -14,6 +14,10 @@ var session = require("express-session");
 var app = express();
 const DIR = './uploads'
 
+var flash = require('connect-flash');
+
+
+// saving picture
 let storage = multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, DIR);
@@ -22,6 +26,9 @@ let storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
+// saving picture
+
+
 
 let upload = multer({ storage: storage });
 app.set('view engine', 'ejs');
@@ -30,6 +37,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session({ secret: 'xyz', saveUninitialized: true, resave: true }));
 
+
+// flash
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.success = req.flash('success');
+    res.locals.register = req.flash('register');
+
+    next();
+
+});
+// flash
 
 
 
@@ -46,7 +64,7 @@ app.get('/registration', function (req, res) {
 
 
 app.get('/login', function (req, res) {
-    
+
     res.render('login');
 
 
@@ -56,11 +74,11 @@ app.get('/login', function (req, res) {
 
 app.get('/myprofile', function (req, res) {
 
-    
+
     var email = req.session.email;
     console.log("4535365365", email)
-     var sql = "SELECT * FROM details WHERE email=?";
-     db.query(sql, [email], function (error, results) {
+    var sql = "SELECT * FROM details WHERE email=?";
+    db.query(sql, [email], function (error, results) {
         if (error) {
             console.log("2020202", error);
 
@@ -69,6 +87,9 @@ app.get('/myprofile', function (req, res) {
             res.render('myprofile', {
                 results: results[0],
             });
+
+
+
         }
     });
 
@@ -79,41 +100,43 @@ app.get('/update', function (req, res) {
     var email = req.session.email;
     console.log("4535365365", email)
     var sql = "SELECT * FROM details WHERE email=?";
+
     db.query(sql, [email], function (error, results) {
         if (error) {
             console.log("2020202", error);
 
         }
         else {
-          
+
             res.render('update', {
+
                 results: results[0],
+
             });
         }
 
-
     });
+
 });
 
 
 app.get('/admin', function (req, res) {
 
     res.render('admin');
-
-
+   
 });
 
 
 app.get('/logout', function (req, res) {
-    console.log("destroyed",req.session);
+    console.log("destroyed", req.session);
 
-    req.session.destroy(function(req,resp,err){
-        if(err){
-            console.log("awzsexdrcftvgy",err);
+    req.session.destroy(function (req, resp, err) {
+        if (err) {
+            console.log("awzsexdrcftvgy", err);
         }
-        else{
-        console.log("destroyed");
-        res.redirect("login")
+        else {
+            console.log("destroyed");
+            res.redirect("login")
         }
     })
 
@@ -146,7 +169,7 @@ app.post('/admin', function (req, res) {
 app.post('/blocked', function (req, res) {
 
     var x = req.body.hidden;
-    var y = req.body.hidden1; 
+    var y = req.body.hidden1;
     console.log("$%$%$%$%", x);
     console.log("<><><><>", y);
 
@@ -157,13 +180,16 @@ app.post('/blocked', function (req, res) {
             console.error('Err3or', error);
         }
         else {
-            res.redirect('/admin')
+             req.flash('success', 'Changes have been done successfully');
+             console.log("|+|+||+|+|+", req.flash)
+             res.redirect('/admin')
         }
     });
 
-   
+
 
 });
+
 
 
 

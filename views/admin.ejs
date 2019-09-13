@@ -1,6 +1,13 @@
 <html>
     <head>
-            <style >
+
+            <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+           <style >
                 
                    .h1{
                        color:lightslategrey;
@@ -86,12 +93,27 @@
                     background-color: #28739E;
                 }
 
-
+              .div1{
+                  border: 10 px solid #28739E;
+                  border-radius: 10px;
+              }
               
                 </style>
     </head>
     <body>
-        <h1 class="h1">Admin-Login</h1>
+
+            <% if(success != ''){ %>
+                <div class="container">
+                        <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      
+                <%= success%>
+                </div>
+                </div>
+                <% }%>
+
+
+       <div class="div1"> <h1 class="h1">Admin-Login</h1></div>
     <form class="form"  action="/admin" method="post">
    
     <ul>
@@ -106,6 +128,15 @@
     
 </form>
 
+
+
+
+
+
+   
+           
+            
+        
 
     </body>
     </html>

@@ -29,7 +29,7 @@ var db=require('./db');
     res.redirect('/myprofile');
 }
   
-
+ 
 else {
      
     res.write("try again with right credentials OR the user may be blocked");

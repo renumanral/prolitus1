@@ -1,5 +1,13 @@
 <html>
     <head>
+
+
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
             <style >
                 
                    .h1{
@@ -91,13 +99,24 @@
                 </style>
     </head>
     <body>
+
+
+            <% if(register != ''){ %>
+                <div class="container">
+                        <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      
+                <%= register%>
+                </div>
+                </div>
+                <% }%>
         <h1 class="h1">Login-page</h1>
     <form class="form"  action="/login" method="post">
    
     <ul>
-        <li>Email<input type="email" name="email" class="field-style field-split " placeholder="Eg-renu@prolitus.com" ></li>
+        <li>Email<input type="email" name="email" class="field-style field-split " placeholder="Eg-renu@prolitus.com" required ></li>
 
-    <li>Password <input type="password" name="password" class="field-style field-split " placeholder="Eg-Your Wish"> </li>
+    <li>Password <input type="password" name="password" class="field-style field-split " placeholder="Eg-Your Wish" required> </li>
 
     <li><input type="submit" name="send" value="Send"></li>
     

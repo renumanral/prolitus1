@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    
     <style>
         .h1 {
             color: lightslategrey;
@@ -98,18 +99,18 @@
 
         <ul>
 
-            <li>Name<input type="text" name="name" class="field-style field-split " placeholder="Eg-Renu Manral" /></li>
+            <li>Name<input type="text" name="name" class="field-style field-split " placeholder="Eg-Renu Manral"  required/></li>
 
             <li>Email <input type="email" name="email" class="field-style field-split "
-                    placeholder="Eg-renu@prolitus.com" /></li>
+                    placeholder="Eg-renu@prolitus.com" required /></li>
             <li>Password <input type="password" name="password" class="field-style field-split "
-                    placeholder="Your Wish" /></li>
-            <li>Phone<input type="number" name="phone" class="field-style field-split " placeholder="Eg-9999999999" />
+                    placeholder="Your Wish" required/></li>
+            <li>Phone<input type="number" name="phone" class="field-style field-split " placeholder="Eg-9999999999" required/>
             </li>
-            <li>Country<input type="text" name="country" class="field-style field-split " placeholder="Eg-India" /></li>
-            <li>State<input type="text" name="state" class="field-style field-split " placeholder="Eg-Uttarakhand" />
+            <li>Country<input type="text" name="country" class="field-style field-split " placeholder="Eg-India" required/></li>
+            <li>State<input type="text" name="state" class="field-style field-split " placeholder="Eg-Uttarakhand" required/>
             </li>
-            <li>City<input type="text" name="city" class="field-style field-split " placeholder="Eg-Almora" /></li>
+            <li>City<input type="text" name="city" class="field-style field-split " placeholder="Eg-Almora" required/></li>
 
             <li>Hobbies</li>
             <li>Playing<input type="checkbox" name="hobbies" value="playing" />
@@ -128,15 +129,17 @@
             </li>
 
             <li>Address<input type="text" name="address" class="field-style field-split "
-                    placeholder="Eg-Sector 2,Noida,Prolitus technologies" /></li>
+                    placeholder="Eg-Sector 2,Noida,Prolitus technologies" required /></li>
             <li>Address Line 1<input type="text" name="addres1" class="field-style field-split "
                     placeholder="Flat No." /></li>
-            <li>Pin-Code<input type="number" name="pin" class="field-style field-split " placeholder="110092" /></li>
-            <li>Image <input type="file" name="profile" accept=""/></li>
+            <li>Pin-Code<input type="number" name="pin" class="field-style field-split " placeholder="110092" required/></li>
+            <li>Image <input type="file" name="profile" accept="" required/></li>
             <li><input type="submit" name="submit" value="Send"></li>
 
         </ul>
     </form>
+
+    
 </body>
 
 </html>
